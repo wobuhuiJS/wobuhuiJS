@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b-login label arse {
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+        
+        .b-login input:focus {
+            outline: none;
+            border: 1px solid pink;
+        }
+        
+        .gg {
+            width: 280px;
+            height: 280px;
+            margin: 200px auto;
+            position: relative;
+        }
+        
+        .del {
+            position: absolute;
+            top: -1px;
+            right: 10px;
+            font-size: 30px;
+            font-style: string;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="b-login">
+        <input type="text" name="" id="" value="请输入账号" class="account">
+        <input type="password" placeholder="请输入密码" class="ipt">
+        <label for="">
+            <img src="../image/close.png" alt="" class="arse" style="cursor:pointer;">
+        </label>
+        <label for="">
+            <img src="../image/login.png" alt="" class="login" style="cursor:pointer;">
+        </label>
+    </div>
+    <div class="gg">
+        <img src="../image/ewm.jpg" alt="" class="ewm">
+        <i class="del" style="cursor:pointer;">x</i>
+    </div>
+    <script>
+        let ipt = document.querySelector('.ipt');
+        let login = document.querySelector('.login');
+        let arse = document.querySelector('.arse');
+        let account = document.querySelector('.account');
+        let del = document.querySelector('.del');
+        let gg = document.querySelector('.gg');
+        let flag = 0;
+        // 账号
+        account.onfocus = function() {
+            // console.log('得到焦点');
+            if (this.value === '请输入账号') {
+                this.value = "";
+            }
+        }
+        account.onblur = function() {
+                // console.log('失去焦点');
+                if (this.value === '') {
+                    this.value = '请输入账号';
+                }
+            }
+            // 密码
+        arse.onclick = function() {
+            if (flag == 0) {
+                ipt.type = 'text';
+                flag = 1;
+                arse.src = '../image/眼睛.png';
+            } else {
+                ipt.type = 'password';
+                flag = 0;
+                arse.src = '../image/close.png';
+            }
+        }
+        ipt.onfocus = function() {
+            // console.log('得到焦点');
+            if (this.placeholder === '请输入密码') {
+                this.placeholder = "";
+            }
+        }
+        ipt.onblur = function() {
+                // console.log('失去焦点');
+                if (this.placeholder === '') {
+                    this.placeholder = '请输入密码';
+                }
+            }
+            // 登录
+        login.onclick = function() {
+            alert('登录成功');
+        }
+
+        ////二维码关闭
+        del.onclick = function() {
+            gg.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
